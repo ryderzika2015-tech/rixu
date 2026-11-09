@@ -1,0 +1,1 @@
+Vue 3.5.13 browser production build (MIT), supplied by the installed trame_client distribution. Only used by build:offline. Standard Vite uses the declared vue package. The small offline declaration is a limited API contract, not the full official Vue type package. No framework is emulated.

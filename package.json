@@ -1,0 +1,31 @@
+{
+  "name": "rixu",
+  "version": "0.3.2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "typecheck:offline": "tsc --noEmit -p tsconfig.offline.json",
+    "build:offline": "node tools/build-offline.mjs",
+    "serve:offline": "node tools/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "python tests/e2e.py",
+    "test:ui:isolated": "node tools/build-harness.mjs && python tests/ui_isolated.py",
+    "doctor": "node tools/doctor.mjs",
+    "test:startup": "node --test tests/startup.test.mjs",
+    "test:esm": "python tests/esm_smoke.py"
+  },
+  "dependencies": {
+    "vue": "3.5.45"
+  },
+  "devDependencies": {
+    "vite": "8.3.6",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

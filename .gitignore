@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.offline/
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite*
+*.jks
+*.keystore
+android/.gradle/
+android/local.properties
+private-data/

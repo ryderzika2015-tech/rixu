@@ -1,0 +1,51 @@
+import {meta,clone,alive,type Snapshot,type Task,type Goal,type Plan} from './model.js';
+import {validDay,validStamp,shiftDay,dayDiff} from './time.js';
+import {newTask,validateTask} from './tasks.js';
+import {ensureTaxon,tagsFromNames,taxonomyName,tagNames} from './taxonomy.js';
+export const fields:Record<string,string[]>={title:['title','task','\u4efb\u52a1','\u4efb\u52a1\u540d\u79f0','\u4e8b\u9879','\u540d\u79f0'],date:['date','\u65e5\u671f','\u8ba1\u5212\u65e5\u671f','\u6267\u884c\u65e5\u671f'],estimate:['estimate','estimated_minutes','duration_minutes','\u9884\u8ba1\u65f6\u957f','\u9884\u8ba1\u65f6\u957f\uff08\u5206\u949f\uff09','\u65f6\u957f'],category:['category','\u5206\u7c7b'],tags:['tags','\u6807\u7b7e'],quantity:['quantity','\u6570\u91cf','\u76ee\u6807\u6570\u91cf'],unit:['unit','\u5355\u4f4d'],required:['required','\u5fc5\u505a'],start:['start','start_time','\u5f00\u59cb\u65f6\u95f4'],end:['end','end_time','\u7ed3\u675f\u65f6\u95f4'],deadline:['deadline','\u622a\u6b62\u65f6\u95f4'],note:['note','\u5907\u6ce8'],type:['type','\u7c7b\u578b'],stage:['stage','\u9636\u6bb5'],kind:['kind','\u76ee\u6807\u7c7b\u578b']};
+const get=(o:any,k:string,fallback:any='')=>{for(const key of fields[k]||[k])if(o&&Object.prototype.hasOwnProperty.call(o,key)&&o[key]!==''&&o[key]!=null)return o[key];return fallback};
+function day(v:unknown){const s=String(v??'').trim().replace(/[/.\u5e74]/g,'-').replace(/\u6708/g,'-').replace(/[\u65e5\u53f7]/g,'');const m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);const out=m?`${m[1]}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`:s;if(!validDay(out))throw Error('INVALID_DATE');return out}
+function number(v:unknown,min:number,max:number){const n=Number(v);if(!Number.isFinite(n)||n<min||n>max)throw Error('INVALID_NUMBER');return n}
+function stamp(v:unknown,d:string){if(v===undefined||v===null||v==='')return '';let s=String(v).trim().replace(' ','T');if(/^\d{1,2}:\d{2}$/.test(s))s=d+'T'+s.padStart(5,'0');if(!validStamp(s))throw Error('INVALID_TIME');return s}
+function estimate(v:unknown){if(!v)return 0;const s=String(v).trim(),m=s.match(/^(\d+(?:\.\d+)?)\s*(\u5206\u949f|min|m|\u5c0f\u65f6|h)?$/i);if(!m)throw Error('INVALID_DURATION');return number(+m[1]*(/^(h|\u5c0f\u65f6)$/i.test(m[2]||'')?60:1),0,1440)}
+function bool(v:unknown){if(v===undefined||v==='')return true;if([true,1,'1','true','yes','\u662f'].includes(v as any))return true;if([false,0,'0','false','no','\u5426'].includes(v as any))return false;throw Error('INVALID_BOOLEAN')}
+function clean(v:unknown,max=500){const s=String(v??'').trim();if(s.length>max)throw Error('TEXT_TOO_LONG');return s}
+export function readCSV(text:string,delimiter=','):Record<string,string>[] {
+ let rows:string[][]=[],row:string[]=[],field='',quoted=false,after=false;text=text.replace(/^\uFEFF/,'');
+ for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'){if(text[i+1]==='"'){field+='"';i++}else {quoted=false;after=true}}else field+=c}
+ else if(c==='"'){if(field.trim()||after)throw Error('CSV_QUOTES');quoted=true}
+ else if(c===delimiter){row.push(field);field='';after=false}
+ else if(c==='\r'||c==='\n'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(field);if(row.some(x=>x.trim()))rows.push(row);row=[];field='';after=false}
+ else if(after&&!/\s/.test(c))throw Error('CSV_QUOTES');else if(!after)field+=c;}
+ if(quoted)throw Error('CSV_QUOTES');row.push(field);if(row.some(x=>x.trim()))rows.push(row);if(rows.length<2)throw Error('EMPTY_PLAN');
+ const heads=rows.shift()!.map(x=>x.trim());if(heads.some(x=>!x)||new Set(heads).size!==heads.length)throw Error('CSV_HEADERS');
+ return rows.map(r=>{if(r.length!==heads.length)throw Error('CSV_COLUMNS');const result:Record<string,string>=Object.create(null);heads.forEach((h,j)=>result[h]=r[j]);return result});
+}
+export interface PlanRow {kind:'task'|'goal';row:number;title:string;date:string;data:any;error?:string;status:'new'|'duplicate'|'error'}
+export interface PlanPreview {name:string;externalId:string;filename:string;rows:PlanRow[]}
+export const fingerprint=(t:Pick<Task,'title'|'date'|'start'|'deadline'>)=>[t.title.trim().replace(/\s+/g,' '),t.date,t.start||'',t.deadline||''].join('\u241f');
+export function parsePlan(text:string,filename:string,s:Snapshot):PlanPreview{
+ if(new TextEncoder().encode(text).length>5_000_000)throw Error('FILE_TOO_LARGE');text=text.replace(/^\uFEFF/,'').trim().replace(/^```(?:json|csv)?\s*/i,'').replace(/\s*```$/,'');if(!text)throw Error('EMPTY_PLAN');if(text.includes('\ufffd'))throw Error('INVALID_ENCODING');
+ let name=filename.replace(/\.[^.]+$/,''),externalId='',tasks:any[]=[],goals:any[]=[];
+ if(/^[{[]/.test(text)){const raw=JSON.parse(text);if(raw.transactions||raw.format==='rixu.backup.v3'||raw.schemaVersion)throw Error('USE_BACKUP_IMPORT');
+ if(raw.format&&raw.format!=='rixu.plan.v1')throw Error('UNKNOWN_FORMAT');
+ if(Array.isArray(raw))tasks=raw;else {name=clean(raw.name||raw.plan_name||name,100);externalId=clean(raw.id||raw.plan_id,100);if(Array.isArray(raw.tasks))tasks=raw.tasks;else if(Array.isArray(raw.days))tasks=raw.days.flatMap((d:any)=>{if(!Array.isArray(d.tasks))throw Error('INVALID_PLAN');return d.tasks.map((t:any)=>({...t,date:get(t,'date',d.date),stage:get(t,'stage',d.stage||'')}))});else throw Error('INVALID_PLAN');goals=raw.goals||[];if(!Array.isArray(goals))throw Error('INVALID_PLAN')}
+ }else tasks=readCSV(text,filename.endsWith('.tsv')||text.split('\n')[0].includes('\t')?'\t':',');
+ if(tasks.length+goals.length>5000)throw Error('TOO_MANY_ROWS');if(!tasks.length&&!goals.length)throw Error('EMPTY_PLAN');const rows:PlanRow[]=[];
+ for(const [kind,items] of [['task',tasks],['goal',goals]] as const)items.forEach((raw:any,i:number)=>{
+ try{if(!raw||typeof raw!=='object')throw Error('INVALID_PLAN');const title=clean(get(raw,'title'));if(!title)throw Error('TITLE_REQUIRED');const date=day(get(raw,'date'));const data:any={title,date,category:clean(get(raw,'category'),80),tags:get(raw,'tags',[]),note:clean(get(raw,'note'),4000)};
+ if(!Array.isArray(data.tags))data.tags=String(data.tags).split(/[,\uff0c;\uff1b|]/);if(data.tags.length>30)throw Error('TOO_MANY_TAGS');data.tags=data.tags.map((t:unknown)=>clean(t,80)).filter(Boolean);
+ if(kind==='task'){data.estimate=estimate(get(raw,'estimate',0));data.quantity=number(get(raw,'quantity',1),0.0001,1e8);data.unit=clean(get(raw,'unit','\u9879'),12);data.required=bool(get(raw,'required',true));data.start=stamp(get(raw,'start'),date);data.end=stamp(get(raw,'end'),date);data.deadline=stamp(get(raw,'deadline'),date);data.type=['memo','\u5907\u5fd8','\u5907\u5fd8\u5f55'].includes(get(raw,'type','task'))?'memo':'task';if(!['task','memo','\u4efb\u52a1','\u5907\u5fd8','\u5907\u5fd8\u5f55','\u6bcf\u65e5\u4efb\u52a1'].includes(get(raw,'type','task')))throw Error('INVALID_TYPE');if(data.type==='memo'&&!data.deadline)throw Error('DEADLINE_REQUIRED');if(data.type==='memo')data.date=data.deadline.slice(0,10);if(data.start&&data.end&&data.start>=data.end)throw Error('INVALID_RANGE');data.stage=clean(get(raw,'stage'),80);if(data.stage)data.tags.push(data.stage);data.knowledge=typeof raw.knowledge==='string'?raw.knowledge:'';
+ }else {const k=get(raw,'kind','milestone');if(!['milestone','habit','\u91cd\u8981\u8282\u70b9','\u6301\u7eed\u575a\u6301'].includes(k))throw Error('INVALID_TYPE');data.kind=['habit','\u6301\u7eed\u575a\u6301'].includes(k)?'habit':'milestone'}
+ rows.push({kind,row:i+1,title,date:data.date,data,status:'new'});
+ }catch(e){rows.push({kind,row:i+1,title:String(get(raw,'title')).slice(0,500),date:'',data:raw,error:e instanceof Error?e.message:'INVALID_PLAN',status:'error'})}});
+ return classify({name,externalId,filename,rows},s);
+}
+export function classify(p:PlanPreview,s:Snapshot):PlanPreview{const copy=clone(p),taskKeys=new Set(alive(s.tasks).map(fingerprint)),goalKeys=new Set(alive(s.goals).map(g=>g.title+'|'+g.date));for(const r of copy.rows){if(r.error)continue;const key=r.kind==='task'?fingerprint(r.data):r.title+'|'+r.date;const set=r.kind==='task'?taskKeys:goalKeys;r.status=set.has(key)?'duplicate':'new';set.add(key)}return copy}
+export function shiftPlan(p:PlanPreview,newStart:string,s:Snapshot):PlanPreview{if(!validDay(newStart))throw Error('INVALID_DATE');const out=clone(p),first=out.rows.filter(x=>!x.error).map(x=>x.date).sort()[0];if(!first)return out;const delta=dayDiff(newStart,first);for(const r of out.rows){if(r.error)continue;r.date=shiftDay(r.date,delta);r.data.date=r.date;for(const k of ['start','end','deadline'])if(r.data[k])r.data[k]=shiftDay(r.data[k].slice(0,10),delta)+r.data[k].slice(10)}return classify(out,s)}
+export function applyPlan(s:Snapshot,p:PlanPreview):void{
+ const current=classify(p,s);if(current.rows.some(x=>x.error))throw Error('PLAN_HAS_ERRORS');const rows=current.rows.filter(x=>x.status==='new');if(!rows.length)return;
+ let plan=alive(s.plans).find(x=>p.externalId&&x.externalId===p.externalId);if(!plan){plan={...meta(p.externalId==='cet33'?'cet33':undefined),name:p.name,externalId:p.externalId,note:''};s.plans.push(plan)}
+ for(const r of rows){const d=r.data,categoryId=ensureTaxon(s,'task',d.category),tagIds=tagsFromNames(s,d.tags);if(r.kind==='task'){const t:Task={...newTask(d.date,categoryId),...d,tagIds,categoryId,planId:plan.id,source:p.externalId==='cet33'?'cet33':'plan-import',progress:0,actualLegacySeconds:0};delete (t as any).category;delete (t as any).tags;validateTask(t);s.tasks.push(t)}else s.goals.push({...meta(),title:d.title,date:d.date,kind:d.kind,categoryId,tagIds,note:d.note,planId:plan.id,done:false,checkins:[]})}
+}
+export function exportPlan(s:Snapshot,id:string){const p=s.plans.find(x=>x.id===id);if(!p)throw Error('NOT_FOUND');return {format:'rixu.plan.v1',id:p.externalId||p.id,name:p.name,tasks:alive(s.tasks).filter(t=>t.planId===id).map(t=>({date:t.date,title:t.title,estimate:t.estimate,category:taxonomyName(s,t.categoryId),tags:tagNames(s,t.tagIds),quantity:t.quantity,unit:t.unit,required:t.required,start:t.start||undefined,end:t.end||undefined,deadline:t.deadline||undefined,type:t.type,note:t.note,stage:t.stage,knowledge:t.knowledge})),goals:alive(s.goals).filter(g=>g.planId===id).map(g=>({title:g.title,date:g.date,kind:g.kind,category:taxonomyName(s,g.categoryId),tags:tagNames(s,g.tagIds),note:g.note}))}}

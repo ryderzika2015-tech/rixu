@@ -1,0 +1,2413 @@
+{
+  "format": "rixu.plan.v1",
+  "id": "cet33",
+  "name": "六级 33 天计划",
+  "tasks": [
+    {
+      "date": "2026-11-09",
+      "title": "六级核心词 · 第 1—50 词",
+      "estimate": 40,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 50,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-09",
+      "title": "听力 · 长对话精听",
+      "estimate": 30,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "段",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-09",
+      "title": "仔细阅读 · 限时与订正",
+      "estimate": 25,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-09",
+      "title": "写观点句 3 句",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-10",
+      "title": "六级核心词 · 第 51—100 词",
+      "estimate": 40,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 50,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-10",
+      "title": "听力 · 听力篇章精听",
+      "estimate": 30,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "段",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-10",
+      "title": "仔细阅读 · 限时与订正",
+      "estimate": 25,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-10",
+      "title": "翻译短句 3 句",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-11",
+      "title": "六级核心词 · 第 101—150 词",
+      "estimate": 40,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 50,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-11",
+      "title": "听力 · 讲话与讲座精听",
+      "estimate": 30,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "段",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-11",
+      "title": "仔细阅读 · 限时与订正",
+      "estimate": 25,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-11",
+      "title": "段落匹配 5 题",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-12",
+      "title": "六级核心词 · 第 151—200 词",
+      "estimate": 40,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 50,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-12",
+      "title": "听力 · 长对话精听",
+      "estimate": 30,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "段",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-12",
+      "title": "仔细阅读 · 限时与订正",
+      "estimate": 25,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-12",
+      "title": "翻译短句 3 句",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-13",
+      "title": "六级核心词 · 第 201—250 词",
+      "estimate": 40,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 50,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-13",
+      "title": "听力 · 讲话与讲座精听",
+      "estimate": 30,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "段",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-13",
+      "title": "仔细阅读 · 限时与订正",
+      "estimate": 25,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-13",
+      "title": "写作文主体段 5 句",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-14",
+      "title": "六级核心词 · 第 251—300 词",
+      "estimate": 40,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 50,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-14",
+      "title": "听力 · 听力篇章精听",
+      "estimate": 30,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "段",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-14",
+      "title": "仔细阅读 · 限时与订正",
+      "estimate": 25,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-14",
+      "title": "段落匹配 5 题",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-15",
+      "title": "六级核心词 · 第 301—350 词",
+      "estimate": 40,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 50,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-15",
+      "title": "听力 · 本周难点复听精听",
+      "estimate": 30,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "段",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-15",
+      "title": "仔细阅读 · 限时与订正",
+      "estimate": 25,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-15",
+      "title": "整理典型错误 5 个",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-16",
+      "title": "六级核心词 · 第 351—450 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-16",
+      "title": "第 1 次完整模考",
+      "estimate": 145,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "套",
+      "required": true,
+      "note": "替代当日常规听力、阅读、作文和翻译，不叠加。",
+      "knowledge": "mock"
+    },
+    {
+      "date": "2026-11-16",
+      "title": "模考复盘 · 核对与错因分析",
+      "estimate": 65,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-16",
+      "title": "成绩登记与阶段比较",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-17",
+      "title": "六级核心词 · 第 451—550 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-17",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-17",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-17",
+      "title": "段落匹配 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-11-17",
+      "title": "作文 · 社会现象",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-11-17",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-18",
+      "title": "六级核心词 · 第 551—650 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-18",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-18",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-18",
+      "title": "选词填空 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "cloze"
+    },
+    {
+      "date": "2026-11-18",
+      "title": "翻译 · 传统文化",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-11-18",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-19",
+      "title": "六级核心词 · 第 651—750 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-19",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-19",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-19",
+      "title": "段落匹配 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-11-19",
+      "title": "作文 · 校园教育",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-11-19",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-20",
+      "title": "六级核心词 · 第 751—850 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-20",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-20",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-20",
+      "title": "选词填空 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "cloze"
+    },
+    {
+      "date": "2026-11-20",
+      "title": "翻译 · 科技发展",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-11-20",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-21",
+      "title": "六级核心词 · 第 851—950 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-21",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-21",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-21",
+      "title": "段落匹配 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-11-21",
+      "title": "作文 · 科技与生活",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-11-21",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-22",
+      "title": "六级核心词 · 第 951—1050 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-22",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-22",
+      "title": "完整阅读 · 限时 40 分钟 + 订正",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 30,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-22",
+      "title": "翻译 · 短句训练",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 5,
+      "unit": "句",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-11-22",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-23",
+      "title": "六级核心词 · 第 1051—1150 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-23",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-23",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-23",
+      "title": "段落匹配 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-11-23",
+      "title": "翻译 · 历史文化",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-11-23",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-24",
+      "title": "六级核心词 · 第 1151—1250 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-24",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-24",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-24",
+      "title": "选词填空 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "cloze"
+    },
+    {
+      "date": "2026-11-24",
+      "title": "作文 · 社会责任",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-11-24",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-25",
+      "title": "六级核心词 · 第 1251—1350 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "段落匹配 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "翻译 · 复杂句训练",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 5,
+      "unit": "句",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-26",
+      "title": "六级核心词 · 第 1351—1450 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-26",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-26",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-26",
+      "title": "选词填空 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "cloze"
+    },
+    {
+      "date": "2026-11-26",
+      "title": "翻译 · 建筑与城市",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-11-26",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-27",
+      "title": "六级核心词 · 第 1451—1550 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-27",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-27",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-27",
+      "title": "段落匹配 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-11-27",
+      "title": "作文 · 个人成长",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-11-27",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-28",
+      "title": "六级核心词 · 第 1551—1650 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-28",
+      "title": "第 2 次完整模考",
+      "estimate": 145,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "套",
+      "required": true,
+      "note": "替代当日常规听力、阅读、作文和翻译，不叠加。",
+      "knowledge": "mock"
+    },
+    {
+      "date": "2026-11-28",
+      "title": "模考复盘 · 核对与错因分析",
+      "estimate": 65,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-28",
+      "title": "成绩登记与阶段比较",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-29",
+      "title": "六级核心词 · 第 1651—1750 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-29",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-29",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-29",
+      "title": "选词填空 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "cloze"
+    },
+    {
+      "date": "2026-11-29",
+      "title": "翻译 · 经济社会",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-11-29",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-11-30",
+      "title": "六级核心词 · 第 1751—1850 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-11-30",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-11-30",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-11-30",
+      "title": "段落匹配 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-11-30",
+      "title": "作文 · 环境保护",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-11-30",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-01",
+      "title": "六级核心词 · 第 1851—1950 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-01",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-12-01",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-12-01",
+      "title": "选词填空 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "cloze"
+    },
+    {
+      "date": "2026-12-01",
+      "title": "翻译 · 传统节日",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-12-01",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-02",
+      "title": "六级核心词 · 第 1951—2050 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-02",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-12-02",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-12-02",
+      "title": "段落匹配 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-12-02",
+      "title": "作文 · 人工智能与教育",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-12-02",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-03",
+      "title": "六级核心词 · 第 2051—2150 词",
+      "estimate": 75,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "新词首轮学习 + 到期旧词复习；时间为可调整预估。",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-03",
+      "title": "听力真题 + 重点精听",
+      "estimate": 90,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-12-03",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 55,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-12-03",
+      "title": "选词填空 · 1 套",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "cloze"
+    },
+    {
+      "date": "2026-12-03",
+      "title": "翻译 · 现代化建设",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-12-03",
+      "title": "当日复盘 · 错词与典型错误",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-04",
+      "title": "薄弱词汇复习",
+      "estimate": 35,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-04",
+      "title": "第 3 次完整模考",
+      "estimate": 145,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "套",
+      "required": true,
+      "note": "替代当日常规听力、阅读、作文和翻译，不叠加。",
+      "knowledge": "mock"
+    },
+    {
+      "date": "2026-12-04",
+      "title": "模考复盘 · 核对与错因分析",
+      "estimate": 65,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-05",
+      "title": "薄弱词汇复习",
+      "estimate": 35,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-05",
+      "title": "听力真题 + 重点错题复听",
+      "estimate": 70,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-12-05",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-12-05",
+      "title": "段落匹配 · 5 题",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 5,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-12-05",
+      "title": "重写一篇薄弱作文",
+      "estimate": 45,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-12-05",
+      "title": "当日错误归纳",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-06",
+      "title": "薄弱词汇复习",
+      "estimate": 35,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-06",
+      "title": "听力真题 + 重点错题复听",
+      "estimate": 70,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-12-06",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-12-06",
+      "title": "段落匹配 · 5 题",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 5,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-12-06",
+      "title": "作文 · 综合议论文",
+      "estimate": 45,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-12-06",
+      "title": "当日错误归纳",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-07",
+      "title": "薄弱词汇复习",
+      "estimate": 35,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-07",
+      "title": "听力真题 + 重点错题复听",
+      "estimate": 70,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-12-07",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-12-07",
+      "title": "选词填空 · 10 题",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 10,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "cloze"
+    },
+    {
+      "date": "2026-12-07",
+      "title": "翻译 · 文化与科技",
+      "estimate": 45,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": "translation"
+    },
+    {
+      "date": "2026-12-07",
+      "title": "当日错误归纳",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-08",
+      "title": "薄弱词汇复习",
+      "estimate": 35,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-08",
+      "title": "第 4 次完整模考",
+      "estimate": 145,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "套",
+      "required": true,
+      "note": "替代当日常规听力、阅读、作文和翻译，不叠加。",
+      "knowledge": "mock"
+    },
+    {
+      "date": "2026-12-08",
+      "title": "模考复盘 · 核对与错因分析",
+      "estimate": 65,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-09",
+      "title": "薄弱词汇复习",
+      "estimate": 35,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-09",
+      "title": "听力真题 + 重点错题复听",
+      "estimate": 70,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-12-09",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-12-09",
+      "title": "段落匹配 · 5 题",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 5,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-12-09",
+      "title": "模考复盘 · 改写典型错句",
+      "estimate": 45,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-12-09",
+      "title": "当日错误归纳",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-10",
+      "title": "薄弱词汇复习",
+      "estimate": 35,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 100,
+      "unit": "个",
+      "required": true,
+      "note": "",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-10",
+      "title": "听力真题 + 重点错题复听",
+      "estimate": 70,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 25,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-12-10",
+      "title": "仔细阅读 · 2 篇与订正",
+      "estimate": 50,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 2,
+      "unit": "篇",
+      "required": true,
+      "note": "",
+      "knowledge": "reading"
+    },
+    {
+      "date": "2026-12-10",
+      "title": "段落匹配 · 5 题",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 5,
+      "unit": "题",
+      "required": true,
+      "note": "",
+      "knowledge": "matching"
+    },
+    {
+      "date": "2026-12-10",
+      "title": "回顾作文框架与翻译句型",
+      "estimate": 45,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": "writing"
+    },
+    {
+      "date": "2026-12-10",
+      "title": "当日错误归纳",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-11",
+      "title": "高频易错词回顾",
+      "estimate": 20,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 50,
+      "unit": "个",
+      "required": true,
+      "note": "",
+      "knowledge": "vocab"
+    },
+    {
+      "date": "2026-12-11",
+      "title": "熟悉听力材料复听",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "段",
+      "required": true,
+      "note": "",
+      "knowledge": "listening"
+    },
+    {
+      "date": "2026-12-11",
+      "title": "作文框架与翻译句型回顾",
+      "estimate": 15,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "",
+      "knowledge": null
+    },
+    {
+      "date": "2026-12-11",
+      "title": "检查考试证件、用品与地点",
+      "estimate": 10,
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "quantity": 1,
+      "unit": "项",
+      "required": true,
+      "note": "考试时间与入场要求以准考证及考点通知为准。",
+      "knowledge": null
+    }
+  ],
+  "goals": [
+    {
+      "title": "六级考试 · 550+",
+      "date": "2026-12-12",
+      "kind": "milestone",
+      "category": "英语学习",
+      "tags": [
+        "六级冲刺"
+      ],
+      "note": ""
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": ".offline",
+    "rootDir": "src",
+    "paths": {
+      "vue": [
+        "./vendor/vue-api.d.ts"
+      ]
+    },
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}

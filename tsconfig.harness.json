@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","compilerOptions":{"noEmit":false,"outDir":".test-build","rootDir":"src","paths":{"vue":["./vendor/vue-api.d.ts"]},"sourceMap":true,"module":"CommonJS","moduleResolution":"Node"},"include":["src/**/*.ts"]}
