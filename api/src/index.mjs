@@ -1,4 +1,5 @@
-import {createRemoteJWKSet,jwtVerify} from 'jose';
+import {createRemoteJWKSet} from 'jose';
+import {verifyAuthToken} from './auth.mjs';
 import {pullRecords,applyMutation} from './database.mjs';
 import {ProtocolError,parseMutation,parseCursor,encodeCursor,originAllowed,allowedUser,json,readJsonCapped} from './protocol.mjs';
 const keys=new Map();
@@ -19,7 +20,7 @@ async function authorize(request,env) {
   if(!keys.has(jwksKey))keys.set(jwksKey,createRemoteJWKSet(jwksUrl));
   let payload;
   try {
-    ({payload}=await jwtVerify(token,keys.get(jwksKey),{issuer:auth.origin,algorithms:['EdDSA']}));
+    ({payload}=await verifyAuthToken(token,keys.get(jwksKey),auth.origin));
   }catch {throw new ProtocolError(401,'INVALID_TOKEN');}
   if(typeof payload.sub!=='string'||!payload.sub)throw new ProtocolError(401,'INVALID_SUBJECT');
   if(!allowedUser(payload.sub,env))throw new ProtocolError(403,'ACCOUNT_NOT_ALLOWED');

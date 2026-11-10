@@ -7,6 +7,9 @@
     "paths": {
       "vue": [
         "./vendor/vue-api.d.ts"
+      ],
+      "@neon/auth": [
+        "./vendor/neon-auth-api.d.ts"
       ]
     },
     "sourceMap": true
