@@ -11,3 +11,16 @@ dist/
 android/.gradle/
 android/local.properties
 private-data/
+# 本地检查及临时文件
+environment-report.json
+*.log
+qa/
+
+# 证书与密钥
+*.pem
+*.p12
+*.pfx
+*.key
+# Cloudflare Workers 本地文件与密钥
+.dev.vars*
+.wrangler/
