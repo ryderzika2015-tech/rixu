@@ -43,6 +43,7 @@ function friendlyError(error:unknown):string {
     if (error.code==='ACCOUNT_NOT_ALLOWED') return '该账号未获日序同步 API 授权，请核对用户 ID 白名单';
     if (error.code==='INVALID_TOKEN') return '登录令牌未通过后端验证，请检查 JWT 签发者和公钥配置';
     if (error.code==='ORIGIN_NOT_ALLOWED') return '当前网页地址尚未加入后端允许来源';
+    if (error.code==='API_UNREACHABLE') return '无法连接日序 API。请确认 rixu-api 可访问，并检查 Worker 的 ALLOWED_ORIGINS 是否包含当前预览网址';
     if (error.code==='BACKEND_NOT_CONFIGURED') return '云端 API 尚未配置完成';
     if (error.code==='LOGIN_REQUIRED'||error.code==='MISSING_TOKEN') return '当前登录会话没有可用的 API 身份令牌，请刷新状态后重试';
     return `API 验证失败（${error.status}：${error.code}）`;
@@ -55,7 +56,9 @@ export async function getAccessToken():Promise<string|null> {
   const client=await getClient();
   // Neon SDK attaches the short-lived JWT to getSession().data.session.token.
   // The underlying session cookie is opaque and must never be sent to our API.
-  const session=await client.getSession();
+  let session:Awaited<ReturnType<Client['getSession']>>;
+  try {session=await client.getSession();}
+  catch {throw new Error('无法连接 Neon Auth 认证服务，请稍后重试');}
   if (session.error) throw new Error('获取登录会话失败，请刷新状态后重试');
   const currentUser=userFromSession(session.data);
   if (!currentUser || currentUser.id!==authUser.value.id) return null;
