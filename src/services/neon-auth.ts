@@ -84,6 +84,30 @@ export async function signIn(email:string,password:string):Promise<void> {
   }catch(e){authUser.value=null;verifyState.value='error';authError.value=friendlyError(e);throw e;}
   finally{authPending.value=false;}
 }
+export async function requestPasswordReset(email:string):Promise<void> {
+  if (!authConfigured) throw new Error('未配置认证服务');
+  if (!email.trim()) throw new Error('请输入邮箱');
+  authPending.value=true;authError.value='';
+  try {
+    const redirectTo=new URL('/',window.location.origin);
+    redirectTo.searchParams.set('reset','1');
+    const result=await (await getClient()).requestPasswordReset({email:email.trim(),redirectTo:redirectTo.href});
+    if(result.error)throw new Error(result.error.message||'无法发送重置邮件');
+  }catch(e){authError.value=friendlyError(e);throw e;}
+  finally{authPending.value=false;}
+}
+export async function resetPassword(token:string,newPassword:string):Promise<void> {
+  if(!token || !newPassword)throw new Error('重置链接或新密码无效');
+  authPending.value=true;authError.value='';
+  try {
+    const result=await (await getClient()).resetPassword({token,newPassword});
+    if(result.error)throw new Error(result.error.message||'重置密码失败');
+    const url=new URL(window.location.href);
+    url.searchParams.delete('token');url.searchParams.delete('reset');
+    window.history.replaceState(null,'',url.pathname+url.search+url.hash);
+  }catch(e){authError.value=friendlyError(e);throw e;}
+  finally{authPending.value=false;}
+}
 export async function verifyIdentity():Promise<void> {
   if (!api || !authUser.value)throw new Error('请先登录');
   authPending.value=true;authError.value='';verifiedUserId.value='';
