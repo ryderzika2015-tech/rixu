@@ -84,6 +84,17 @@ export async function signIn(email:string,password:string):Promise<void> {
   }catch(e){authUser.value=null;verifyState.value='error';authError.value=friendlyError(e);throw e;}
   finally{authPending.value=false;}
 }
+export async function signUp(name:string,email:string,password:string):Promise<void> {
+  if(!authConfigured)throw new Error('未配置认证服务');
+  if(!name.trim() || !email.trim() || password.length<8)throw new Error('请输入姓名、邮箱和至少 8 位密码');
+  authPending.value=true;authError.value='';
+  try {
+    const result=await (await getClient()).signUp.email({name:name.trim(),email:email.trim(),password});
+    if(result.error)throw new Error(result.error.message||'注册失败');
+    await refreshAuth();
+  }catch(e){authError.value=friendlyError(e);throw e;}
+  finally{authPending.value=false;}
+}
 export async function requestPasswordReset(email:string):Promise<void> {
   if (!authConfigured) throw new Error('未配置认证服务');
   if (!email.trim()) throw new Error('请输入邮箱');

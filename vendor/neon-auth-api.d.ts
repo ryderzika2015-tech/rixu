@@ -4,6 +4,7 @@
 export interface Result<T> {data:T|null;error:{message?:string}|null}
 export function createAuthClient(url:string): {
   signIn:{email(args:{email:string;password:string}):Promise<Result<unknown>>};
+  signUp:{email(args:{name:string;email:string;password:string}):Promise<Result<unknown>>};
   signOut():Promise<Result<unknown>>;
   getSession():Promise<Result<{user?:{id:string;email:string;name:string}}>>;
   token():Promise<Result<{token:string}>>;
