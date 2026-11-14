@@ -44,7 +44,7 @@ function friendlyError(error:unknown):string {
     if (error.code==='INVALID_TOKEN') return '登录令牌未通过后端验证，请检查 JWT 签发者和公钥配置';
     if (error.code==='ORIGIN_NOT_ALLOWED') return '当前网页地址尚未加入后端允许来源';
     if (error.code==='BACKEND_NOT_CONFIGURED') return '云端 API 尚未配置完成';
-    if (error.code==='LOGIN_REQUIRED'||error.code==='MISSING_TOKEN') return '当前会话无有效身份令牌，请重新登录';
+    if (error.code==='LOGIN_REQUIRED'||error.code==='MISSING_TOKEN') return '当前登录会话没有可用的 API 身份令牌，请刷新状态后重试';
     return `API 验证失败（${error.status}：${error.code}）`;
   }
   if (error && typeof error==='object' && 'message' in error && typeof error.message==='string')return error.message;
@@ -52,9 +52,21 @@ function friendlyError(error:unknown):string {
 }
 export async function getAccessToken():Promise<string|null> {
   if (!authConfigured || !authUser.value) return null;
-  const response=await (await getClient()).token();
+  const client=await getClient();
+  // Neon SDK attaches the short-lived JWT to getSession().data.session.token.
+  // The underlying session cookie is opaque and must never be sent to our API.
+  const session=await client.getSession();
+  if (session.error) throw new Error('获取登录会话失败，请刷新状态后重试');
+  const currentUser=userFromSession(session.data);
+  if (!currentUser || currentUser.id!==authUser.value.id) return null;
+  const sessionToken=session.data?.session?.token;
+  if (typeof sessionToken==='string' && sessionToken.split('.').length===3) return sessionToken;
+  // Some SDK/server combinations expose the same JWT via the JWT plugin.
+  const response=await client.token();
+  if (response.error) throw new Error('Neon Auth 未签发 API 身份令牌，请检查认证服务设置');
   const token=response.data?.token;
-  return typeof token==='string' && token.split('.').length===3 ? token : null;
+  if (typeof token==='string' && token.split('.').length===3) return token;
+  throw new Error('Neon Auth 未返回有效的 API 身份令牌，请检查认证服务设置');
 }
 export async function refreshAuth():Promise<void> {
   if (!authConfigured) {authUser.value=null;verifyState.value='none';authError.value='尚未配置认证服务';return;}
