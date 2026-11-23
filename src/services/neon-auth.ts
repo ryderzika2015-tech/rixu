@@ -4,7 +4,9 @@
 import {ref} from 'vue';
 import {createSyncApi, SyncApiError} from './sync-api.js';
 
-export interface UserIdentity {id: string; email: string; name: string}
+export interface UserIdentity {id: string; email: string; name: string; emailVerified: boolean}
+export const verificationEmail = ref('');
+export const verificationSentAt = ref(0);
 export type VerifyState = 'none' | 'unchecked' | 'verified' | 'denied' | 'error';
 export const authUser = ref<UserIdentity | null>(null);
 export const authPending = ref(false);
@@ -36,7 +38,7 @@ function userFromSession(value: unknown): UserIdentity | null {
   if (!u || typeof u !== 'object') return null;
   const x=u as Record<string,unknown>;
   if (typeof x.id!=='string' || !x.id) return null;
-  return {id:x.id, email:typeof x.email==='string'?x.email:'', name:typeof x.name==='string'?x.name:''};
+  return {id:x.id, email:typeof x.email==='string'?x.email:'', name:typeof x.name==='string'?x.name:'', emailVerified:x.emailVerified===true};
 }
 function friendlyError(error:unknown):string {
   if (error instanceof SyncApiError) {
@@ -78,6 +80,7 @@ export async function refreshAuth():Promise<void> {
     const response=await (await getClient()).getSession();
     if (response.error) throw new Error(response.error.message||'SESSION_FAILED');
     authUser.value=userFromSession(response.data);
+    if(authUser.value?.emailVerified) verificationEmail.value='';
     verifyState.value=authUser.value?'unchecked':'none';
     verifiedUserId.value='';
   }catch(e) {authUser.value=null;verifyState.value='error';authError.value=friendlyError(e);}
@@ -90,11 +93,15 @@ export async function signIn(email:string,password:string):Promise<void> {
   try {
     const client=await getClient();
     const result=await client.signIn.email({email:email.trim(),password});
-    if (result.error)throw new Error(result.error.message||'登录失败');
+    if (result.error) {
+      if (result.error.code==='EMAIL_NOT_VERIFIED') verificationEmail.value=email.trim();
+      throw new Error(result.error.code==='EMAIL_NOT_VERIFIED'?'请先验证邮箱，再登录':result.error.message||'登录失败');
+    }
     const response=await (await getClient()).getSession();
     if (response.error)throw new Error(response.error.message||'获取会话失败');
     authUser.value=userFromSession(response.data);
     if (!authUser.value)throw new Error('登录成功但未取得会话，请检查浏览器 Cookie 设置');
+    verificationEmail.value=authUser.value.emailVerified?'':authUser.value.email;
     verifyState.value='unchecked';
   }catch(e){authUser.value=null;verifyState.value='error';authError.value=friendlyError(e);throw e;}
   finally{authPending.value=false;}
@@ -106,9 +113,37 @@ export async function signUp(name:string,email:string,password:string):Promise<v
   try {
     const result=await (await getClient()).signUp.email({name:name.trim(),email:email.trim(),password});
     if(result.error)throw new Error(result.error.message||'注册失败');
+    const user=result.data?.user;
+    verificationEmail.value=user && !user.emailVerified ? email.trim() : '';
     await refreshAuth();
   }catch(e){authError.value=friendlyError(e);throw e;}
   finally{authPending.value=false;}
+}
+export async function sendVerification(email:string):Promise<void> {
+  const target=email.trim();
+  if(!target){authError.value='请输入需要验证的邮箱';throw new Error(authError.value);}
+  if(authPending.value)return;
+  if(Date.now()-verificationSentAt.value<60000){authError.value='请等待一分钟后重新发送';throw new Error(authError.value);}
+  authPending.value=true;authError.value='';
+  try {
+    const result=await (await getClient()).sendVerificationEmail({email:target,callbackURL:window.location.origin+'/'});
+    if(result.error)throw new Error(result.error.message||'验证邮件发送失败');
+    verificationEmail.value=target;verificationSentAt.value=Date.now();
+  }catch(e){authError.value=friendlyError(e);throw e;}
+  finally{authPending.value=false;}
+}
+export async function verifyEmailCode(code:string):Promise<void> {
+  const target=verificationEmail.value||authUser.value?.email||'';
+  if(!target || !/^\d{6}$/.test(code.trim())){authError.value='请输入邮件中的六位验证码';throw new Error(authError.value);}
+  if(authPending.value)return;
+  authPending.value=true;authError.value='';
+  try {
+    const result=await (await getClient()).emailOtp.verifyEmail({email:target,otp:code.trim()});
+    if(result.error)throw new Error(result.error.message||'验证码无效或已过期，请重新发送');
+    verificationEmail.value='';verificationSentAt.value=0;
+  }catch(e){authError.value=friendlyError(e);throw e;}
+  finally{authPending.value=false;}
+  await refreshAuth();
 }
 export async function requestPasswordReset(email:string):Promise<void> {
   if (!authConfigured) throw new Error('未配置认证服务');
@@ -149,7 +184,7 @@ export async function signOut():Promise<void> {
   try {
     const result=await (await getClient()).signOut();
     if (result.error)throw new Error(result.error.message||'退出失败');
-    authUser.value=null;verifyState.value='none';verifiedUserId.value='';
+    authUser.value=null;verifyState.value='none';verifiedUserId.value='';verificationEmail.value='';verificationSentAt.value=0;
   }catch(e){authError.value=friendlyError(e);throw e;}
   finally{authPending.value=false;}
 }
