@@ -28,3 +28,12 @@
 .reminder-live strong{font-size:14px}.reminder-live p{font-size:12px;color:var(--muted);margin:5px 0 12px}
 .reminder-live .row{gap:7px}.reminder-live button{background:var(--soft);padding:8px 10px;border-radius:8px;color:var(--green);font-size:12px}
 @media(max-width:800px){.reminder-live{bottom:calc(78px + env(safe-area-inset-bottom));right:13px;left:13px;max-width:none}}
+
+/* V0.3.3 cloud account: intentionally compact and calm */
+.account-panel{margin-bottom:18px}.account-panel .section-heading{margin-bottom:6px}
+.account-note{margin-bottom:14px}.account-details{display:flex;align-items:center;gap:12px;padding:12px 0}
+.account-details strong{font-weight:560;display:block;font-size:13px;overflow-wrap:anywhere}
+.account-details small{display:block}.account-indicator{height:8px;width:8px;border-radius:50%;background:#d3b882}
+.account-indicator.verified{background:#84a179}.account-actions{gap:8px}.account-actions .secondary,.account-actions .text-button{font-size:12px}
+.account-form{max-width:440px;margin-top:10px}.account-form label{display:block}.account-feedback{margin-top:12px}
+.account-login-toggle{margin-top:10px}.account-panel .warning{margin-top:10px}

@@ -9,7 +9,9 @@ export function createSyncApi(options:SyncOptions){
  if(!/^https:\/\//.test(base) && !/^http:\/\/127\.0\.0\.1(?::\d+)?$/.test(base))throw new Error('INVALID_SYNC_API_URL');
  async function fetchJson<T>(path:string,init:RequestInit={}):Promise<T>{
   const token=await options.getAccessToken();if(!token)throw new SyncApiError(401,'LOGIN_REQUIRED');
-  const res=await fetch(base+path,{...init,headers:{...init.headers,Authorization:`Bearer ${token}`,'Content-Type':'application/json'}});
+  let res:Response;
+  try {res=await fetch(base+path,{...init,headers:{...init.headers,Authorization:`Bearer ${token}`,'Content-Type':'application/json'}});}
+  catch {throw new SyncApiError(0,'API_UNREACHABLE');}
   const body=await res.json().catch(()=>({error:'INVALID_RESPONSE'}));
   if(!res.ok)throw new SyncApiError(res.status,String(body?.error||'SYNC_FAILED'));
   return body as T;
