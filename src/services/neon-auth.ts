@@ -144,6 +144,12 @@ export async function verifyEmailCode(code:string):Promise<void> {
   }catch(e){authError.value=friendlyError(e);throw e;}
   finally{authPending.value=false;}
   await refreshAuth();
+  // The OTP endpoint has confirmed this email. getSession may briefly return
+  // the previous cached emailVerified value; update only the matching identity
+  // for immediate UI feedback. This does not grant login or API permissions.
+  if(authUser.value?.email.toLowerCase()===target.toLowerCase()) {
+    authUser.value={...authUser.value,emailVerified:true};
+  }
 }
 export async function requestPasswordReset(email:string):Promise<void> {
   if (!authConfigured) throw new Error('未配置认证服务');

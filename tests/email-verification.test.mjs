@@ -58,3 +58,18 @@ test('account template compiles with verification forms and signed-in recovery',
   const template=source.match(/template:`([\s\S]*)`\s*\}\);/)[1];
   assert.doesNotThrow(()=>compile(template));
 });
+test('successful OTP immediately hides verification even if session data is stale',async()=>{
+  const auth=await setup({sendVerificationEmail:async()=>({error:null}),emailOtp:{verifyEmail:async()=>({error:null})},getSession:async()=>({data:{user},error:null})});
+  await auth.refreshAuth();
+  assert.equal(auth.authUser.value.emailVerified,false);
+  await auth.sendVerification(user.email);
+  await auth.verifyEmailCode('123456');
+  assert.equal(auth.verificationEmail.value,'');
+  assert.equal(auth.authUser.value.emailVerified,true);
+});
+test('OTP for one email never marks a different signed-in user verified',async()=>{
+  const auth=await setup({sendVerificationEmail:async()=>({error:null}),emailOtp:{verifyEmail:async()=>({error:null})},getSession:async()=>({data:{user:{...user,id:'other',email:'other@example.test'}},error:null})});
+  await auth.sendVerification(user.email);
+  await auth.verifyEmailCode('123456');
+  assert.equal(auth.authUser.value.emailVerified,false);
+});
