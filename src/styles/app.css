@@ -37,3 +37,5 @@
 .account-indicator.verified{background:#84a179}.account-actions{gap:8px}.account-actions .secondary,.account-actions .text-button{font-size:12px}
 .account-form{max-width:440px;margin-top:10px}.account-form label{display:block}.account-feedback{margin-top:12px}
 .account-login-toggle{margin-top:10px}.account-panel .warning{margin-top:10px}
+
+.task-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:8px 0 14px;overscroll-behavior-x:contain}.task-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start}.task-slide .task-row{min-height:160px;border:0}.task-slide .task-body{min-width:0}.task-slide strong{overflow-wrap:anywhere}

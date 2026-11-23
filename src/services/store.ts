@@ -76,7 +76,7 @@ export function saveCapture(candidates:Candidate[],mode:CaptureMode,batchId=uid(
  if(mode==='ledger'&&candidates.some(x=>x.selected&&x.kind==='task'))throw Error('LEDGER_BOUNDARY');
  for(const c of candidates){const id=prefix+(idx++);if(c.kind==='pending'||!c.selected)continue;
  if(c.kind==='transaction'){if(!c.amount||!Number.isSafeInteger(c.amount))throw Error('INVALID_MONEY');s.transactions.push({...meta(id),title:c.title,date:c.date,type:c.type||'expense',amount:c.amount,currency:'CNY',categoryId:ensureTaxon(s,c.type||'expense',c.category||''),tagIds:tagsFromNames(s,c.tags||''),note:''})}
- else {const t=newTask(c.date,ensureTaxon(s,'task',c.category||''));t.id=id;t.title=c.title;t.estimate=0;t.deadline=c.deadline||'';t.type=c.date>today()&&!!c.deadline?'memo':'task';t.source=t.type==='memo'?'memo':'manual';validateTask(t);s.tasks.push(t)}}
+ else {const t=newTask(c.date,ensureTaxon(s,'task',c.category||''));t.id=id;t.title=c.title;t.estimate=0;t.deadline=c.deadline||'';t.type=c.taskType||(mode==='memo'?'memo':'task');if(t.deadline)t.reminders.at=t.deadline;t.reminders.repeatCount=3;t.reminders.repeatMinutes=15;t.source=t.type==='memo'?'memo':'manual';validateTask(t);s.tasks.push(t)}}
  })}
 export function saveRawDraft(text:string,mode:CaptureMode){return execute(s=>{s.drafts.push({...meta(),raw:text,mode,reason:'DRAFT',date:today()})})}
 export function renameCategory(id:string,name:string){return execute(s=>renameTaxon(s,id,name))}

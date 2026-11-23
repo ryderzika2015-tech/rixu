@@ -17,5 +17,6 @@ const manifest='android/app/src/main/AndroidManifest.xml';
 let xml=readFileSync(manifest,'utf8');
 // Device/cloud backup is separate from the explicit JSON backup flow.
 xml=xml.replace('android:allowBackup="true"','android:allowBackup="false"');
+if(!xml.includes('android.permission.SCHEDULE_EXACT_ALARM'))xml=xml.replace('<application','<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/><application');
 writeFileSync(manifest,xml);
 console.log('Android project ready. Build with android/gradlew assembleDebug.');

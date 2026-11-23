@@ -1,10 +1,11 @@
+import {naturalTime} from './natural-time.js';
 import {toCents} from './money.js';
 import {dayAt,shiftDay,stampAt,validStamp} from './time.js';
 export type CaptureMode='auto'|'ledger'|'task'|'memo';
 export interface Candidate {
  kind:'transaction'|'task'|'pending';title:string;date:string;amount?:number;
  type?:'income'|'expense';category?:string;deadline?:string;reason?:string;
- tags?:string;raw:string;selected:boolean;
+ taskType?:'task'|'memo';tags?:string;raw:string;selected:boolean;
 }
 const incoming=/赚|收入|收到|到账|工资|奖学金|红包|入账/;
 const spending=/花|付|消费|支出|元|块|买了|用了/;
@@ -59,13 +60,9 @@ export function parseCapture(text:string,mode:CaptureMode,now=Date.now(),zone='A
   if(context)out.push(pending(context,date,'AMOUNT_REQUIRED'));
   return out.length?out:[pending(text,today,'AMOUNT_REQUIRED')];
  }
- let date=/后天/.test(text)?shiftDay(today,2):/明天|明晚/.test(text)?shiftDay(today,1):today;
- const exact=text.match(/\d{4}-\d{2}-\d{2}/);if(exact)date=exact[0];
- const m=text.match(/(\d{1,2})[点:](?:(\d{1,2})分?)?/);let deadline='';
- if(m){let hour=+m[1];if(/晚|下午/.test(text)&&hour<12)hour+=12;if(/中午/.test(text)&&hour<11)hour+=12;
-  deadline=`${date}T${String(hour).padStart(2,'0')}:${String(m[2]||0).padStart(2,'0')}`;
-  if(!validStamp(deadline)||deadline<=stampAt(now,zone))return [pending(text,date,'PAST_OR_INVALID_TIME')];}
+ const {date,deadline,timeText,invalid}=naturalTime(text,now,zone);
+ if(invalid)return [pending(text,date,'PAST_OR_INVALID_TIME')];
  if(/下周|周末|未来|之后/.test(text)||mode==='memo'&&!deadline)return [pending(text,date,'TIME_REQUIRED')];
- const title=text.replace(/今晚|明晚|今天|明天|后天|下午|上午|晚上|中午/g,'').replace(/\d{4}-\d{2}-\d{2}/,'').replace(/\d{1,2}[点:](?:\d{1,2}分?)?(?:以?前)?/,'').trim();
- return [{kind:'task',title:title||text,date,deadline,category:/作业|报告|复习/.test(text)?'专业学习':'日常生活',raw:text,selected:true}];
+ const title=text.replace(timeText||'\u0000','').replace(/(?:(?:\d{4})年)?\d{1,2}月\d{1,2}[日号]?/,'').replace(/今晚|明晚|今天|明天|后天|下午|上午|晚上|中午/g,'').replace(/\d{4}-\d{2}-\d{2}/,'').replace(/\d{1,2}[点:](?:\d{1,2}分?)?(?:以?前)?/,'').trim();
+ return [{kind:'task',taskType:mode==='memo'||mode==='auto'&&!!deadline?'memo':'task',title:title.replace(/^以?前\s*/,'')||text,date,deadline,category:/作业|报告|复习/.test(text)?'专业学习':'日常生活',raw:text,selected:true}];
 }

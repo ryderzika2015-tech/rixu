@@ -1,3 +1,4 @@
+/** Legacy web adapter contract; Android scheduling is implemented in services/native-reminders.ts. */
 import type {ReminderNode} from '../domain/reminders.js';
 export interface NotificationAdapter {capability:'unavailable'|'native';reconcile(nodes:ReminderNode[]):Promise<void>}
 /** Web intentionally does not pretend setTimeout is a background OS reminder. */

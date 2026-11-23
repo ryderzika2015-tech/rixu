@@ -2,7 +2,7 @@ export const SCHEMA = 3 as const;
 export type Scope='task'|'expense'|'income';
 export interface Entity {id:string;version:number;updatedAt:string;deletedAt?:string;extra?:Record<string,unknown>}
 export interface Taxon extends Entity {name:string;scope:Scope|'tag';aliases:string[]}
-export interface ReminderRule {mode:'default'|'custom'|'off';custom:string[];snoozedUntil?:string;repeatCount?:number;repeatMinutes?:number}
+export interface ReminderRule {at?:string;mode:'default'|'custom'|'off';custom:string[];snoozedUntil?:string;repeatCount?:number;repeatMinutes?:number}
 export interface Task extends Entity {
  title:string;date:string;estimate:number;quantity:number;unit:string;progress:number;
  required:boolean;status:'pending'|'partial'|'done'|'cancelled';type:'task'|'memo';

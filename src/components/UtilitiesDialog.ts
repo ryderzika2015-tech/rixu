@@ -25,7 +25,7 @@ export default defineComponent({name:'UtilitiesDialog',components:{TaskRow},setu
   if(!Number.isInteger(prefs.value.repeatCount)||prefs.value.repeatCount!<1||prefs.value.repeatCount!>5)throw Error('INVALID_DURATION');
   if(!Number.isInteger(prefs.value.repeatMinutes)||prefs.value.repeatMinutes!<5||prefs.value.repeatMinutes!>240)throw Error('INVALID_DURATION');
   await execute(s=>Object.assign(s.settings[0],{timezone:prefs.value.timezone,capacity:prefs.value.capacity,farDays:prefs.value.farDays,nearHours:prefs.value.nearHours,repeatCount:prefs.value.repeatCount,repeatMinutes:prefs.value.repeatMinutes,startAlerts:prefs.value.startAlerts,overdue:prefs.value.overdue,quiet:prefs.value.quiet}));
-  close();notify('提醒规则已保存（系统通知需安装安卓版后接入）');
+  close();notify('提醒规则已保存');
  });
  const rule=(id:string,action:'stop'|'snooze15'|'snooze60'|'resume')=>safe(async()=>{
   await changeTaskReminder(id,action);

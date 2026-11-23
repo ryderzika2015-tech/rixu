@@ -1,3 +1,5 @@
+import {startNativeReminders} from './services/native-reminders.js';
+void startNativeReminders();
 import {createApp} from 'vue';
 import App from './App.js';
 import {notify} from './services/store.js';
