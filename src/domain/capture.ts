@@ -1,6 +1,6 @@
 import {naturalTime} from './natural-time.js';
 import {toCents} from './money.js';
-import {dayAt,shiftDay,stampAt,validStamp} from './time.js';
+import {dayAt,shiftDay,stampAt,validStamp,validDay} from './time.js';
 export type CaptureMode='auto'|'ledger'|'task'|'memo';
 export interface Candidate {
  kind:'transaction'|'task'|'pending';title:string;date:string;amount?:number;
@@ -42,7 +42,7 @@ export function parseCapture(text:string,mode:CaptureMode,now=Date.now(),zone='A
   if(ambiguous.test(text)||/[-−]\s*\d/.test(text))return [pending(text,today)];
   const parts=normalizeMoney(text).split(/[，,。；;\n]/).map(x=>x.trim()).filter(x=>x&&!/^(然后呢?|另外呢?|呢)$/.test(x));
   const out:Candidate[]=[];let context='',date=today;
-  for(const part of parts){if(/昨天|昨日/.test(part))date=shiftDay(today,-1);else if(/今天|今日/.test(part))date=today;
+  for(const rawPart of parts){const parsedTime=naturalTime(rawPart,now,zone);if(!validDay(parsedTime.date)||parsedTime.invalid&&!parsedTime.deadline){out.push(pending(rawPart,date,'PAST_OR_INVALID_TIME'));continue;}if(/\d{1,2}月\d{1,2}|\d{4}-\d{2}-\d{2}/.test(rawPart))date=parsedTime.date;const part=rawPart.replace(parsedTime.timeText||'\u0000','').replace(/(?:(?:\d{4})年)?\d{1,2}月\d{1,2}[日号]?|\d{4}-\d{2}-\d{2}/,'');if(/昨天|昨日/.test(part))date=shiftDay(today,-1);else if(/今天|今日/.test(part))date=today;
    const matches=[...part.matchAll(/\d+(?:\.\d+)?/g)];
    if(!matches.length){context+=(context?' ':'')+part;continue;}
    if(matches.length!==1){if(context)out.push(pending(context,date));context='';out.push(pending(part,date));continue;}

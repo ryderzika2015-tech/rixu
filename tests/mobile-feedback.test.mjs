@@ -20,6 +20,10 @@ test('invalid dates, invalid clock and past times remain pending',()=>{
 test('explicit task stays task while memo stays memo even today',()=>{
  for(const mode of ['task','memo'])assert.equal(parseCapture('今天晚上11点前交作业',mode,now)[0].taskType,mode);
 });
+test('ledger time is not mistaken for a second amount',()=>{
+ const c=parseCapture('今天晚上11点花了19.2元吃饭','ledger',now)[0];assert.equal(c.kind,'transaction');assert.equal(c.amount,1920);
+ const dated=parseCapture('11月22日17:40吃饭花了八元','ledger',now)[0];assert.equal(dated.kind,'transaction');assert.equal(dated.date,'2026-11-22');assert.equal(dated.amount,800);
+});
 test('three reminders repeat after the chosen time and stop on completion or off',()=>{
  const task=newTask('2026-11-23','test');task.title='会议';task.reminders={mode:'default',custom:[],at:'2026-11-23T17:00',repeatCount:3,repeatMinutes:15};const prefs=initialSettings();
  const nodes=reminderNodes([task],prefs,now);assert.equal(nodes.length,3);assert.equal(nodes[1].at-nodes[0].at,900000);assert.equal(nodes[2].at-nodes[1].at,900000);
