@@ -24,3 +24,7 @@ qa/
 # Cloudflare Workers 本地文件与密钥
 .dev.vars*
 .wrangler/
+
+# Generated personal Android project and build cache
+android/
+work-npm-cache/

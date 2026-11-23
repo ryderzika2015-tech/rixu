@@ -17,7 +17,8 @@ export const verifiedUserId = ref('');
 const browserEnv = (import.meta as ImportMeta & {env?:Record<string,string>}).env || {};
 const neonAuthUrl = (browserEnv.VITE_NEON_AUTH_URL || '').trim().replace(/\/+$/, '');
 const apiUrl = (browserEnv.VITE_SYNC_API_URL || '').trim().replace(/\/+$/, '');
-export const authConfigured = Boolean(neonAuthUrl && apiUrl && /^https:\/\//.test(neonAuthUrl) && /^https:\/\//.test(apiUrl));
+export const nativeMode=browserEnv.VITE_NATIVE_APP==='1';
+export const authConfigured = !nativeMode && Boolean(neonAuthUrl && apiUrl && /^https:\/\//.test(neonAuthUrl) && /^https:\/\//.test(apiUrl));
 
 // Use official Neon browser session handling; credentials and JWTs are never
 // copied into app's IndexedDB, global state, logs or localStorage.

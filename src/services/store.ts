@@ -1,3 +1,4 @@
+import {exportNativeFile} from '../platform/native-export.js';
 import {ref,shallowRef} from 'vue';
 import {STORES,clone,meta,alive,uid,type Snapshot,type Task,type Goal,type Transaction,type Taxon,type Entity,type StoreName,type Change,type Review} from '../domain/model.js';
 import {IndexedDbRepository,type Repository,ConflictError} from '../storage/repository.js';
@@ -100,5 +101,6 @@ export function importBackup(incoming:Snapshot,replace=false){return execute(s=>
  })}
 export const exportBackup=()=>backup(data.value);
 export function download(name:string,value:unknown,type='application/json;charset=utf-8'){
- const content=typeof value==='string'?value:JSON.stringify(value,null,2),url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ const content=typeof value==='string'?value:JSON.stringify(value,null,2);
+ void exportNativeFile(name,content).then(exported=>{if(exported)return;const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}).catch(()=>notify('备份导出未完成，请重试并选择保存位置')); 
 }

@@ -16,13 +16,19 @@
     "test:ui:isolated": "node tools/build-harness.mjs && python tests/ui_isolated.py",
     "doctor": "node tools/doctor.mjs",
     "test:startup": "node --test tests/startup.test.mjs",
-    "test:esm": "python tests/esm_smoke.py"
+    "test:esm": "python tests/esm_smoke.py",
+    "android:prepare": "node tools/prepare-android.mjs"
   },
   "dependencies": {
+    "@capacitor/android": "8.6.2",
+    "@capacitor/core": "8.6.2",
+    "@capacitor/filesystem": "8.1.5",
+    "@capacitor/share": "8.0.3",
     "@neon/auth": "0.8.2",
     "vue": "3.5.45"
   },
   "devDependencies": {
+    "@capacitor/cli": "8.6.2",
     "typescript": "5.8.3",
     "vite": "8.3.6"
   },
