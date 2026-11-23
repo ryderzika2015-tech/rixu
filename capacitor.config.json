@@ -1,0 +1,7 @@
+{
+  "appId": "tech.rixu.personal",
+  "appName": "日序",
+  "webDir": "dist",
+  "server": {"androidScheme": "https"},
+  "android": {"allowMixedContent": false}
+}

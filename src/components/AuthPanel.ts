@@ -1,5 +1,5 @@
 import {defineComponent,ref,onMounted} from 'vue';
-import {authConfigured,authUser,authPending,authError,verifyState,refreshAuth,signIn,signUp,signOut,verifyIdentity,requestPasswordReset,resetPassword,verificationEmail,sendVerification,verifyEmailCode} from '../services/neon-auth.js';
+import {nativeMode,authConfigured,authUser,authPending,authError,verifyState,refreshAuth,signIn,signUp,signOut,verifyIdentity,requestPasswordReset,resetPassword,verificationEmail,sendVerification,verifyEmailCode} from '../services/neon-auth.js';
 
 /** Compact account section in Settings. No automatic local-data upload. */
 export default defineComponent({
@@ -21,10 +21,10 @@ export default defineComponent({
   const check=async()=>{message.value='';try{await verifyIdentity();message.value='API 身份验证已通过，尚未开启同步。';}catch{}};
   const sendReset=async()=>{message.value='';try{await requestPasswordReset(email.value);message.value='如果该邮箱有账号，请检查收件箱和垃圾邮件中的重置邮件。';showReset.value=false;}catch{}};
   const completeReset=async()=>{message.value='';try{await resetPassword(resetToken.value,newPassword.value);newPassword.value='';resetToken.value='';message.value='密码已重置，请使用新密码登录。';}catch{newPassword.value='';}};
-  return {code,verificationMessage,verificationEmail,resend,confirmEmail,authConfigured,authUser,authPending,authError,verifyState,email,password,name,showLogin,showSignUp,showReset,newPassword,resetToken,message,login,register,logout,check,sendReset,completeReset,refreshAuth};
+  return {code,verificationMessage,verificationEmail,resend,confirmEmail,nativeMode,authConfigured,authUser,authPending,authError,verifyState,email,password,name,showLogin,showSignUp,showReset,newPassword,resetToken,message,login,register,logout,check,sendReset,completeReset,refreshAuth};
  },
  template:`<section class="panel account-panel" aria-label="云端账号">
-  <div class="section-heading"><h2>云端账号</h2><span class="badge">同步尚未启用</span></div>
+  <template v-if="nativeMode"><h2>个人离线版</h2><p>计划、账本和专注记录保存在这台手机，无需登录。</p><p>在“备份与恢复”导入电脑导出的 JSON 文件。卸载前请导出备份。云同步和锁屏提醒尚未启用。</p></template><template v-else><div class="section-heading"><h2>云端账号</h2><span class="badge">同步尚未启用</span></div>
   <p class="small muted account-note">账号只用于验证 Neon Auth 登录及日序 API 权限，本地计划、专注与记账仍保存在当前设备。</p>
   <p class="warning">本机数据尚未按账号分开，退出或更换账号后仍可查看。请勿在共用浏览器中记录私人信息。注册不代表已开通云端同步。</p>
   <p v-if="!authConfigured" class="warning">需要设置 VITE_NEON_AUTH_URL 和 VITE_SYNC_API_URL，重新构建后才可登录。</p>
@@ -43,5 +43,5 @@ export default defineComponent({
   <p v-if="verificationMessage" role="status">{{verificationMessage}}</p>
   <p v-if="authError" class="warning account-feedback" role="alert">{{authError}}</p>
   <p v-else-if="message" class="account-feedback small green" role="status">{{message}}</p>
- </section>`
+ </template></section>`
 });
