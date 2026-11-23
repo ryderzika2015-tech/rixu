@@ -43,13 +43,13 @@ export default defineComponent({name:'CaptureDialog',components:{Icon},setup(){
  },template:`
  <div class="tabs"><button v-for="key in ['auto','ledger','task','memo']" :key="key" :class="{active:mode===key}" @click="mode=key;candidates=[]">{{t(key)}}</button></div>
  <div class="quick-area"><textarea data-testid="capture-text" v-model="text" :placeholder="t('capturePlaceholder')" maxlength="6000"/>
- <div class="row between"><button v-if="speechAvailable" class="icon-button" @click="voice" :aria-label="t('voice')"><Icon name="mic"/></button><button v-else class="link" @click="open(mode==='ledger'?'transaction':'task')">{{t('manual')}}</button>
+ <div class="row between"><button v-if="speechAvailable" class="icon-button" @click="voice" :aria-label="t('voice')"><Icon name="mic"/></button><button v-else class="link" @click="open(mode==='ledger'?'transaction':'task',{memo:mode==='memo'})">{{t('manual')}}</button>
  <button class="primary" @click="parse" :disabled="!text.trim()" data-testid="capture-parse">{{t('organize')}}<Icon name="arrow"/></button></div></div>
  <div v-if="candidates.length" class="capture-summary"><span>识别 {{candidates.length}} 条 · 可保存 {{validCount}} 条</span><b v-if="totals.expense">−¥{{money(totals.expense)}}</b><b v-if="totals.income" class="green">+¥{{money(totals.income)}}</b></div>
  <article v-for="(c,i) in candidates" :key="i" class="candidate" :class="{pending:c.kind==='pending'}">
   <div class="row"><input v-if="c.kind!=='pending'" type="checkbox" v-model="c.selected" :disabled="c.kind==='transaction'&&!c.amount" :aria-label="'保存 '+c.title"/>
    <input v-model="c.title" class="candidate-title" :aria-label="t('taskTitle')"/>
-   <span v-if="c.kind==='pending'" class="badge">信息待补充</span><span v-else class="badge">{{c.kind==='transaction'?'将存入账本':'将存入计划'}}</span></div>
+   <span v-if="c.kind==='pending'" class="badge">信息待补充</span><span v-else class="badge">{{c.kind==='transaction'?'将存入账本':c.taskType==='memo'?'将存入备忘':'将存入计划'}}</span></div>
   <template v-if="c.kind==='pending'"><p class="amber small">{{t(c.reason||'NEEDS_CONFIRMATION')}}。不会自动入账。</p>
    <div class="row" style="margin-top:8px" v-if="mode==='ledger'||mode==='auto'"><button class="secondary" @click="resolve(i,'expense')">补成支出</button><button class="secondary" @click="resolve(i,'income')">补成收入</button></div></template>
   <div v-else-if="c.kind==='transaction'" class="form-grid">

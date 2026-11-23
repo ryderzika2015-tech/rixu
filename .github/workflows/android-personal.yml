@@ -1,7 +1,7 @@
 name: Android personal APK
 on:
   push:
-    branches: [codex/android-personal-v034]
+    branches: [codex/android-personal-v034, codex/android-reminders-v035]
   workflow_dispatch:
 permissions:
   contents: read
