@@ -1,4 +1,5 @@
-import {existsSync,readFileSync,writeFileSync} from 'node:fs';
+import {reminderSound} from './make-reminder-sound.mjs';
+import {existsSync,readFileSync,writeFileSync,mkdirSync,copyFileSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 const cwd=fileURLToPath(new URL('../',import.meta.url));
@@ -18,5 +19,13 @@ let xml=readFileSync(manifest,'utf8');
 // Device/cloud backup is separate from the explicit JSON backup flow.
 xml=xml.replace('android:allowBackup="true"','android:allowBackup="false"');
 if(!xml.includes('android.permission.SCHEDULE_EXACT_ALARM'))xml=xml.replace('<application','<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/><application');
+if(!xml.includes('android.permission.VIBRATE'))xml=xml.replace('<application','<uses-permission android:name="android.permission.VIBRATE"/><application');
 writeFileSync(manifest,xml);
-console.log('Android project ready. Build with android/gradlew assembleDebug.');
+const javaDir='android/app/src/main/java/tech/rixu/app';
+mkdirSync(javaDir,{recursive:true});copyFileSync('android-native/RixuSettingsPlugin.java',javaDir+'/RixuSettingsPlugin.java');
+const activity=javaDir+'/MainActivity.java';
+if(!existsSync(activity))throw Error('Use a fresh checkout for the fixed tech.rixu.app identity; existing generated project uses another package');
+writeFileSync(activity,`package tech.rixu.app;\nimport android.os.Bundle;\nimport com.getcapacitor.BridgeActivity;\npublic class MainActivity extends BridgeActivity {@Override public void onCreate(Bundle savedInstanceState){super.onCreate(savedInstanceState);registerPlugin(RixuSettingsPlugin.class);}}\n`);
+mkdirSync('android/app/src/main/res/raw',{recursive:true});writeFileSync('android/app/src/main/res/raw/rixu_reminder.wav',reminderSound());
+const gradle='android/app/build.gradle';let build=readFileSync(gradle,'utf8');build=build.replace(/versionCode \d+/,'versionCode 3006').replace(/versionName \"[^\"]+\"/,'versionName "0.3.6"');writeFileSync(gradle,build);
+console.log('Android project ready. Build with android/gradlew assembleRelease.');

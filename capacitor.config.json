@@ -1,6 +1,6 @@
 {
-  "appId": "tech.rixu.personal.reminders",
-  "appName": "日序·提醒版",
+  "appId": "tech.rixu.app",
+  "appName": "日序",
   "webDir": "dist",
   "server": {
     "androidScheme": "https"
