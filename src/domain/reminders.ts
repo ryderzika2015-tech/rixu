@@ -21,7 +21,7 @@ export function reminderNodes(tasks:Task[],prefs:Settings,now=Date.now()):Remind
    if(!nodes.some(x=>Math.abs(x.at-at)<600000))nodes.push({key:`${t.id}:${kind}:${at}`,taskId:t.id,at,kind,title:t.title});
   };
   if(t.reminders.at){
-   const first=instant(t.reminders.at,prefs.timezone);const count=Math.min(5,Math.max(1,t.reminders.repeatCount??3));const gap=Math.min(240,Math.max(5,t.reminders.repeatMinutes??15))*60000;
+   const first=instant(t.reminders.at,prefs.timezone)-Math.max(0,t.reminders.advanceMinutes??0)*60000;const count=Math.min(5,Math.max(1,t.reminders.repeatCount??3));const gap=Math.min(240,Math.max(5,t.reminders.repeatMinutes??15))*60000;
    for(let i=0;i<count;i++){const at=first+i*gap;if(at>now&&at>=snooze)all.push({key:`${t.id}:cycle:${at}`,taskId:t.id,at,kind:'repeat',title:t.title});}
    continue;
   }

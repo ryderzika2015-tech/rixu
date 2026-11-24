@@ -6,6 +6,7 @@ export function validateTask(t:Task):void{
  if(!Number.isFinite(t.estimate)||t.estimate<0||t.estimate>1440||!Number.isFinite(t.quantity)||t.quantity<=0||!Number.isFinite(t.progress)||t.progress<0||t.progress>t.quantity)throw Error('INVALID_QUANTITY');
  for(const x of [t.start,t.end,t.deadline,t.reminders.at||'',...t.reminders.custom,t.reminders.snoozedUntil||''])if(x&&!validStamp(x))throw Error('INVALID_TIME');
  if(!['task','memo'].includes(t.type)||!['default','custom','off'].includes(t.reminders.mode))throw Error('INVALID_TYPE');if(t.start&&t.end&&t.start>=t.end)throw Error('INVALID_RANGE');if(t.type==='memo'&&!t.deadline)throw Error('DEADLINE_REQUIRED');
+ if(t.reminders.advanceMinutes!==undefined&&(!Number.isInteger(t.reminders.advanceMinutes)||t.reminders.advanceMinutes<0||t.reminders.advanceMinutes>10080))throw Error('INVALID_REMINDER');
  if(t.reminders.repeatCount!==undefined&&(!Number.isInteger(t.reminders.repeatCount)||t.reminders.repeatCount<1||t.reminders.repeatCount>5))throw Error('INVALID_REMINDER');
  if(t.reminders.repeatMinutes!==undefined&&(!Number.isInteger(t.reminders.repeatMinutes)||t.reminders.repeatMinutes<5||t.reminders.repeatMinutes>240))throw Error('INVALID_REMINDER');
  if(t.deadline&&(t.type==='memo'||t.source==='memo'))t.date=t.deadline.slice(0,10);

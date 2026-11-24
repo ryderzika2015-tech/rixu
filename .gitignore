@@ -28,3 +28,6 @@ qa/
 # Generated personal Android project and build cache
 android/
 work-npm-cache/
+
+.private/
+*signing-password*

@@ -1,7 +1,7 @@
 name: Android personal APK
 on:
   push:
-    branches: [codex/android-personal-v034, codex/android-reminders-v035]
+    branches: [codex/android-personal-v034, codex/android-reminders-v035, codex/android-stable-v036]
   workflow_dispatch:
 permissions:
   contents: read
@@ -29,11 +29,14 @@ jobs:
       - run: npm run build:offline && npm test
       - run: npm run android:prepare
       - run: chmod +x android/gradlew
-      - run: ./gradlew assembleDebug --no-daemon
+      - run: ./gradlew assembleRelease --no-daemon
         working-directory: android
+      - run: mkdir -p signing-tools && cp "$ANDROID_HOME/build-tools/36.0.0/lib/apksigner.jar" signing-tools/apksigner.jar
       - uses: actions/upload-artifact@v4
         with:
-          name: rixu-personal-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          name: rixu-unsigned-release
+          path: |
+            android/app/build/outputs/apk/release/app-release-unsigned.apk
+            signing-tools/apksigner.jar
           if-no-files-found: error
           retention-days: 14

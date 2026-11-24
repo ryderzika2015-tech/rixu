@@ -12,21 +12,22 @@ async function reconcile(){
  if((await api.checkPermissions()).display!=='granted'){notificationStatus.value='通知权限未开启，后台提醒不可用';return;}
  const nodes=reminderNodes(data.value.tasks,data.value.settings[0]);
  if(nodes.length>500)throw Error('待提醒数量超过 500，请减少提醒次数或事项');
- const ids=new Set<number>();const planned=nodes.map(n=>{let id=notificationId(n.key);while(ids.has(id))id=id%2147483646+1;ids.add(id);return {id,title:'日序提醒',body:n.title,actionTypeId:'RIXU_REMINDER',channelId:'rixu-reminders',schedule:{at:new Date(n.at),allowWhileIdle:true},extra:{rixu:true,key:n.key,signature:n.key+'|'+n.title,taskId:n.taskId,at:n.at}};});
+ const ids=new Set<number>();const planned=nodes.map(n=>{let id=notificationId(n.key);while(ids.has(id))id=id%2147483646+1;ids.add(id);return {id,title:'日序提醒',body:n.title,sound:'rixu_reminder.wav',actionTypeId:'RIXU_REMINDER',channelId:'rixu-audible-v2',schedule:{at:new Date(n.at),allowWhileIdle:true},extra:{rixu:true,key:n.key,signature:'audible-v2|'+n.key+'|'+n.title,taskId:n.taskId,at:n.at}};});
  const pending=(await api.getPending()).notifications.filter(n=>n.extra?.rixu);
  const cancel=pending.filter(p=>!planned.some(n=>n.id===p.id&&n.extra.signature===p.extra?.signature));
  if(cancel.length)await api.cancel({notifications:cancel.map(n=>({id:n.id}))});
  const add=planned.filter(n=>!pending.some(p=>p.id===n.id&&p.extra?.signature===n.extra.signature));
  if(add.length)await api.schedule({notifications:add});
  const exact=await api.checkExactNotificationSetting();
- notificationStatus.value=exact.exact_alarm==='granted'?`系统提醒已就绪 · 待提醒 ${planned.length} 次`:'通知已开启；未允许精确闹钟，提醒可能延迟';
+ let audioWarning='';try{const {registerPlugin}=await import('@capacitor/core');const state=await registerPlugin<{getReminderState():Promise<{normalRinger:boolean;volume:number;unrestricted:boolean;sound:boolean;vibration:boolean}>}>('RixuSettings').getReminderState();if(!state.normalRinger||!state.volume||!state.unrestricted||!state.sound||!state.vibration)audioWarning=' · 请检查静音、勿扰、通知音量和渠道振动';}catch{}
+ notificationStatus.value=exact.exact_alarm==='granted'?`已安排 ${planned.length} 次系统提醒${audioWarning}`:'通知已开启；未允许精确闹钟，提醒可能延迟';
 }
 function sync(){queue=queue.catch(()=>{}).then(reconcile).catch(e=>{notificationStatus.value='提醒未能安排：'+(e instanceof Error?e.message:'请检查权限');});}
 export async function startNativeReminders(){
  if(!native()||started)return;started=true;
  try{
   api=(await import('@capacitor/local-notifications')).LocalNotifications;
-  await api.createChannel({id:'rixu-reminders',name:'计划与备忘提醒',importance:5,visibility:1,vibration:true});
+  await api.createChannel({id:'rixu-audible-v2',name:'有声计划提醒',importance:5,visibility:1,vibration:true,sound:'rixu_reminder.wav'});
   await api.registerActionTypes({types:[{id:'RIXU_REMINDER',actions:[{id:'continue',title:'继续提醒',foreground:true},{id:'stop',title:'不再提醒',foreground:true}]}]});
   await api.addListener('localNotificationReceived',n=>{if(n.extra?.rixu)nativeAlert.value={key:n.extra.key,taskId:n.extra.taskId,at:n.extra.at,title:n.body||'',kind:'repeat'};});
   await api.addListener('localNotificationActionPerformed',event=>{void (async()=>{
@@ -51,3 +52,6 @@ export async function respondNativeReminder(stop:boolean){
  if(stop)await changeTaskReminder(alert.taskId,'stop');
  nativeAlert.value=null;sync();
 }
+
+export async function openReminderSettings(){const {registerPlugin}=await import('@capacitor/core');await registerPlugin<{openNotificationSettings():Promise<void>}>('RixuSettings').openNotificationSettings();}
+export async function testReminder(){await startNativeReminders();if(!api)return;try{if((await api.checkPermissions()).display!=='granted'){notificationStatus.value='请先开启通知权限';return;}await api.schedule({notifications:[{id:2147483646,title:'日序测试提醒',body:'请确认能听到铃声并感到振动',channelId:'rixu-audible-v2',sound:'rixu_reminder.wav',schedule:{at:new Date(Date.now()+10000),allowWhileIdle:true},extra:{test:true}}]});notificationStatus.value='已安排 10 秒后测试，请锁屏检查声音和振动';}catch{notificationStatus.value='测试提醒安排失败，请检查系统通知与闹钟设置';}}
